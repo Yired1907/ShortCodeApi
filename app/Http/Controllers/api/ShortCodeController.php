@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class ShortCodeController extends Controller
 {
-
-
-    public function create()
+    public function getcode(Request $request)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomCode = substr(str_shuffle($characters), 0, 6);
@@ -24,12 +22,6 @@ class ShortCodeController extends Controller
         $code->code = $cachedCode;
         $code->save();
 
-        return $code;
-    }
-
-    public function getcode(Request $request)
-    {
-        $code = $this->create($request);
         return $code;
     }
 

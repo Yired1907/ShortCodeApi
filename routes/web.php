@@ -4,7 +4,7 @@ use App\Http\Controllers\CheckController;
 use App\Http\Controllers\CountDownController;
 use App\Http\Controllers\CreateShortLinkController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ShortCodeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,20 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 
 //-----Check code---
-Route::controller(CheckController::class)->group(function () {
+Route::controller(ShortCodeController::class)->group(function () {
     Route::get('/check-code', 'index');
-    Route::post('/sub-code', 'store');
-});
-
-
-Route::controller(CountDownController::class)->group(function () {
-    Route::get('/count-down', 'index');
+    Route::post('/test-code', 'store')->name('test_code');
+    Route::get('/count-down', 'show');
     Route::post('/post-code', 'create');
 });
-
-
-
-
-
 
 Route::get('/home', [HomeController::class, 'index']);

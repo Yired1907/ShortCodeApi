@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(ShortCodeController::class)->group(function () {
-    Route::get('/getcode', 'getcode');
-    Route::post('/checkcode', 'checkcode');
+    Route::post('/get-code', 'getcode');
+    Route::get('/check-code', 'checkcode');
 });
